@@ -1,10 +1,20 @@
 {
-    "recipes": [{
+    "recipes": [
+    {
         "id": 1,
         "title": "Soup",
         "ingredients": ["1 egg", "2 cheese"],
         "method": "Lorem ipsum",
         "notes": "Ipsum lorem",
         "rating": 4
-    }]
+    },
+    {
+        "id": 2,
+        "title": "Sandwich",
+        "ingredients": ["2 ham", "1 bread"],
+        "method": "Lorem ipsum",
+        "notes": "Ipsum lorem",
+        "rating": 3
+    }
+]
 }
