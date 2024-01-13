@@ -1,23 +1,26 @@
 import Recipe from "./Recipe";
+import { useFetchRecipesQuery } from '../store';
 
 function RecipesList() {
-    // hardcode for now
-    const recipes = [{
-        id: 1,
-        title: "Lasagna",
-        ingredients: ["1 egg", "2 cheese"],
-        method: "Lorem ipsum",
-        notes: "Ipsum lorem",
-        rating: 4
-    }]
+    const { data, isFetching, error } = useFetchRecipesQuery();
+    console.log(data);
 
-    const renderedRecipes = recipes.map((recipe) => {
-        return <Recipe key={recipe.id} recipe={recipe} />;
-    })
+    let content;
+    if (isFetching) {
+        content = <div>Fetching recipes...</div>;
+    }
+    else if (error) {
+        content = <div>Error loading recipes.</div>
+    }
+    else {
+        content = data.map((recipe) => {
+            return <Recipe key={recipe.id} recipe={recipe} />;
+        })
+    }
 
     return (
         <div>
-            {renderedRecipes}
+            {content}
         </div>
     );
 }
