@@ -1,3 +1,10 @@
 {
-    "recipes": []
+    "recipes": [{
+        "id": 1,
+        "title": "Soup",
+        "ingredients": ["1 egg", "2 cheese"],
+        "method": "Lorem ipsum",
+        "notes": "Ipsum lorem",
+        "rating": 4
+    }]
 }
