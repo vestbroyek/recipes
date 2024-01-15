@@ -43,6 +43,7 @@ function RecipesList() {
             notes,
             rating
         });
+        closeModal();
     };
 
 
