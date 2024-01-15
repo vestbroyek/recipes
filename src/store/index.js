@@ -13,4 +13,4 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useFetchRecipesQuery } from './apis/recipesApi';
+export { useFetchRecipesQuery, useAddRecipeMutation } from './apis/recipesApi';

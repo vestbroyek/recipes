@@ -16,9 +16,25 @@ const recipesApi = createApi({
                     };
                 }
             }),
+            addRecipe: builder.mutation({
+                query: (recipe) => {
+                    return {
+                        url: "/recipes",
+                        method: "POST",
+                        body: {
+                            id: recipe.id,
+                            title: recipe.title,
+                            ingredients: recipe.ingredients,
+                            method: recipe.method,
+                            notes: recipe.notes,
+                            rating: recipe.rating
+                        },
+                    };
+                },
+            }),
         };
     },
 });
 
-export const { useFetchRecipesQuery } = recipesApi;
+export const { useFetchRecipesQuery, useAddRecipeMutation } = recipesApi;
 export { recipesApi };
