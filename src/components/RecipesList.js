@@ -6,7 +6,7 @@ import { useFetchRecipesQuery, useAddRecipeMutation } from '../store';
 function RecipesList() {
     const { data, isFetching, error } = useFetchRecipesQuery();
     const [addRecipe, addRecipeResults] = useAddRecipeMutation();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false); {/* TODO: refactor modal */}
     const [formValue, setFormValue] = useState({
         title: "",
         ingredients: [],
@@ -64,7 +64,7 @@ function RecipesList() {
                     <Modal
                         isOpen={modalIsOpen} 
                         onRequestClose={closeModal} 
-                        contentLabel="Hello world"
+                        contentLabel="Recipe modal"
                         appElement={document.getElementById('root') || undefined}
                     >
                         <button onClick={closeModal}>close</button>
