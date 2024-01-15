@@ -30,9 +30,9 @@ function Recipe({ recipe }) {
         </div>
         <div className="mt-4">
             <h3 className="text-lg font-semibold mb-1">Rating:</h3>
-            <Rating onClick={handleRating} initialValue={recipe.rating} />
+            <Rating onClick={handleRating} initialValue={recipe.rating} SVGclassName="inline-block"/>
         </div>
-        </div>
+    </div>
         
     );
 
