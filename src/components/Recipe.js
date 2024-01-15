@@ -70,7 +70,7 @@ function Recipe({ recipe }) {
                         appElement={document.getElementById('root') || undefined}
                     >
                         <button onClick={closeModal}>close</button>
-                        <h2>Add a recipe</h2>
+                        <h2>Edit recipe</h2>
                         <form onSubmit={handleEditRecipe}>
                             <label>Title:</label>
                             <input onChange={handleChange} defaultValue={recipe.title} values={recipe.title} name="title" className={inputStyle} />
@@ -88,7 +88,7 @@ function Recipe({ recipe }) {
                             <label>Rating:</label>
                             <input onChange={handleChange} defaultValue={recipe.rating} values={recipe.rating} name="rating" type="number" className={inputStyle}/>
 
-                            <button type="submit" className="button">Create</button>
+                            <button type="submit" className="button">Update</button>
                         </form>                       
                     </Modal>
             </div>
