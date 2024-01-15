@@ -1,9 +1,16 @@
 import { Rating } from 'react-simple-star-rating';
+import { useDeleteRecipeMutation } from '../store';
+import { GoTrashcan } from 'react-icons/go';
 
 function Recipe({ recipe }) {
+    const [deleteRecipe, deleteRecipeResults] = useDeleteRecipeMutation();
 
     const handleRating = (rate) => {
         // this will be a PATCH request
+    };
+
+    const handleDeleteRecipe = () => {
+        deleteRecipe(recipe);
     };
 
     const ingredientsArray = recipe.ingredients.split(", ");
@@ -13,7 +20,12 @@ function Recipe({ recipe }) {
 
    let content = (
     <div className="max-w-md mx-auto bg-white p-4 border border-gray-300 rounded shadow-md">
-        <h2 className="text-2xl font-semibold mb-2">{recipe.title}</h2>
+        <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-semibold mb-2">{recipe.title}</h2>
+            <button className="mr-2" onClick={handleDeleteRecipe}>
+                <GoTrashcan/>
+            </button>
+        </div>
         <div>
             <h3 className="text-lg font-semibold mb-1">Ingredients:</h3>
             <ul className="list-disc ml-4">

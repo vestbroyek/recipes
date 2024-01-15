@@ -32,9 +32,21 @@ const recipesApi = createApi({
                     };
                 },
             }),
+            deleteRecipe: builder.mutation({
+                query: (recipe) => {
+                    return {
+                        url: `/recipes/${recipe.id}`,
+                        method: "DELETE"
+                    };
+                },
+            }),
         };
     },
 });
 
-export const { useFetchRecipesQuery, useAddRecipeMutation } = recipesApi;
+export const { 
+    useFetchRecipesQuery, 
+    useAddRecipeMutation,
+    useDeleteRecipeMutation
+} = recipesApi;
 export { recipesApi };
