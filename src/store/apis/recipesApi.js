@@ -40,6 +40,22 @@ const recipesApi = createApi({
                     };
                 },
             }),
+            editRecipe: builder.mutation({
+                query: (recipe) => {
+                    return {
+                        url: `/recipes/${recipe.id}`,
+                        method: "PATCH",
+                        body: {
+                            id: recipe.id,
+                            title: recipe.title,
+                            ingredients: recipe.ingredients,
+                            method: recipe.method,
+                            notes: recipe.notes,
+                            rating: recipe.rating
+                        }, 
+                    };
+                },
+            }),
         };
     },
 });
@@ -47,6 +63,7 @@ const recipesApi = createApi({
 export const { 
     useFetchRecipesQuery, 
     useAddRecipeMutation,
-    useDeleteRecipeMutation
+    useDeleteRecipeMutation,
+    useEditRecipeMutation
 } = recipesApi;
 export { recipesApi };
