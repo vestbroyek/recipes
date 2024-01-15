@@ -1,13 +1,15 @@
 import { Rating } from 'react-simple-star-rating';
-import searchImages from '../unsplash';
-import { useState } from 'react';
 
 function Recipe({ recipe }) {
-    const [image, setImage] = useState("");
 
     const handleRating = (rate) => {
         // this will be a PATCH request
     };
+
+    const ingredientsArray = recipe.ingredients.split(", ");
+    const renderedIngredients = ingredientsArray.map((ingredient, index) => {
+        return <li key={index} className="mb-1">{ingredient}</li>;
+    });
 
    let content = (
     <div className="max-w-md mx-auto bg-white p-4 border border-gray-300 rounded shadow-md">
@@ -15,9 +17,7 @@ function Recipe({ recipe }) {
         <div>
             <h3 className="text-lg font-semibold mb-1">Ingredients:</h3>
             <ul className="list-disc ml-4">
-            {recipe.ingredients.map((ingredient, index) => (
-                <li key={index} className="mb-1">{ingredient}</li>
-            ))}
+            {renderedIngredients}
             </ul>
         </div>
         <div className="mt-4">
